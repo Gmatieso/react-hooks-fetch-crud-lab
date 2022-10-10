@@ -11,6 +11,11 @@ function QuestionItem({ question,onDeleteClick, onAnswerChange }) {
     </option>
   ));
 
+  // implementing handleDelete Click 
+  function handleDeleteClick(){
+    onDeleteClick(id); 
+  }
+
   return (
     <li>
       <h4>Question {id}</h4>
