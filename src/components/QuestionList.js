@@ -23,6 +23,26 @@ function QuestionList() {
     })
   }
 
+  // immplementing handle answer change 
+  function  handleAnswerChange(id,correctIndex){
+    fetch(`http://localhost:4000/questions/${id}`,{
+      method: "PATCH",
+        headers:{
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({correctIndex})
+      })
+      .then((r)=>r.json())
+      .then(()=>{
+        const updatedQuizList = questions.map((question)=>{
+          if(question.id === updatedQuizList.id)
+            return updatedQuizList;
+            return question;
+        });
+        setQuestions(updatedQuizList)
+      })
+  }
+
 
   return (
     <section>
