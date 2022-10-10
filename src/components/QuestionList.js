@@ -42,7 +42,16 @@ function QuestionList() {
         setQuestions(updatedQuizList)
       })
   }
-
+  
+  // mapping over the question
+  const questionItems = questions.map((question)=>(
+    <QuestionItem 
+      key={question.id}
+      question={question}
+      onDeleteClick={handleDeleteClick}
+      onAnswerChange={handleAnswerChange}
+    />
+  ));
 
   return (
     <section>
