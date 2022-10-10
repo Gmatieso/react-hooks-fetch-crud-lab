@@ -16,6 +16,11 @@ function QuestionItem({ question,onDeleteClick, onAnswerChange }) {
     onDeleteClick(id); 
   }
 
+  // implementing handleAnswerClick 
+  function handleAnswerClick(event){
+    onAnswerChange(id,parseInt(event.target.value))
+  }
+
   return (
     <li>
       <h4>Question {id}</h4>
