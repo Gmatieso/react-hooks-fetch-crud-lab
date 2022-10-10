@@ -1,6 +1,8 @@
 import React from "react";
 
-function QuestionItem({ question }) {
+//implementing our question item 
+
+function QuestionItem({ question,onDeleteClick, onAnswerChange }) {
   const { id, prompt, answers, correctIndex } = question;
 
   const options = answers.map((answer, index) => (
