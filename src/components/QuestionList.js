@@ -9,6 +9,21 @@ function QuestionList() {
     .then(res => res.json())
     .then(questions => setQuestions(questions))
   },[])
+
+  //implementing handle Delete click 
+
+  function handleDeleteClick(id){
+    fetch(`http://localhost:4000/questions/${id}`,{
+        method: "DELETE",
+    })
+    .then((r) => r.json())
+    .then(()=>{
+      const updateQuizList = questions.filter((q)=>q.id !== id)
+      setQuestions(updateQuizList)
+    })
+  }
+
+
   return (
     <section>
       <h1>Quiz Questions</h1>
